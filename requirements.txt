@@ -1,0 +1,9 @@
+gunicorn
+Flask
+Flask_WTF
+flask-pymongo
+pymongo[srv]
+flask_discord
+Flask-Limiter
+stripe
+bs4
