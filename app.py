@@ -49,19 +49,26 @@ template = '<head>\n<title>:TITLE:</title>\n<meta name="title" content=":TITLE:"
 @app.route("/<name>", methods=['GET', 'POST'])
 def index(name):
     global embeds
-    print(str(request.args))
-    print(embeds)
     if name is None:
         return regular
     else:
         if request.method == 'POST':
-            print("hello")
-            embeds[name] = {'title': request.form['title'], 'description': request.form['description']}
-            print("changed")
+            json = request.get_json()
+            new_embed = {}
+            if 'title' in json.keys():
+                new_embed['title'] = json['title']
+            if 'description' in json.keys():
+                new_embed['description'] = json['title']
+            embeds[name] = new_embed
             return "Embed updated"
         elif request.method == 'GET':
             if name in embeds.keys():
-                return template.replace(":TITLE:", embeds[name]['title']).replace(":DESC:", embeds[name]['description'])
+                returning = template
+                if 'title' in embeds[name]:
+                    returning = returning.replace(":TITLE:", embeds[name]['title'])
+                if 'description' in embeds[name]:
+                    returning = returning.replace(":DESC:", embeds[name]['description'])
+                return returning
             else:
                 return regular
 
