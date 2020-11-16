@@ -48,10 +48,12 @@ template = '<head>\n<title>:TITLE:</title>\n<meta name="title" content=":TITLE:"
 # index route
 @app.route("/<name>", methods=['GET', 'POST'])
 def index(name):
+    print(str(request.args))
     if name is None:
         return regular
     else:
         if request.method == 'POST':
+            print("hello")
             embeds[name] = {'title': request.args['title'], 'description': request.args['description']}
             return "Embed updated"
         elif request.method == 'GET':
