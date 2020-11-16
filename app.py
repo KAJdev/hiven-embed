@@ -50,7 +50,7 @@ template = '<head>\n<title>:TITLE:</title>\n<meta name="title" content=":TITLE:"
 def index(name):
     global embeds
     print(str(request.args))
-    print(embed)
+    print(embeds)
     if name is None:
         return regular
     else:
