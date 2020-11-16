@@ -10,7 +10,5 @@ app_host = "0.0.0.0"
 app_port = 80
 # version of API deployment
 api_version = "v2"
-# version schema
-route_prefix = "/"  + app_version + "/"
 #cache timeout in seconds
 cache_timeout = 600
