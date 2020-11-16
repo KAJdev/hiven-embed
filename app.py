@@ -48,6 +48,7 @@ template = '<head>\n<title>:TITLE:</title>\n<meta name="title" content=":TITLE:"
 # index route
 @app.route("/<name>", methods=['GET', 'POST'])
 def index(name):
+    global embeds
     print(str(request.args))
     print(embed)
     if name is None:
