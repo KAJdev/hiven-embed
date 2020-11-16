@@ -53,6 +53,7 @@ def index(name):
     else:
         if request.method == 'POST':
             embeds[name] = {'title': request.args['title'], 'description': request.args['description']}
+            return "Embed updated"
         elif request.method == 'GET':
             if name in embeds.keys():
                 return template.replace(":TITLE:", embeds[name]['title']).replace(":DESC:", embeds[name]['description'])
