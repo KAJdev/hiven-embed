@@ -49,7 +49,7 @@ template = '<head>\n<meta name="title" content=":TITLE:">\n<meta name="descripti
 @app.route("/<name>", methods=['GET', 'POST'])
 def index(name):
     if name is None:
-        return "Welcome to the api! Here, take this."
+        return regular
     else:
         if request.method == 'POST':
             embeds[name] = {'title': request.args['title'], 'description': request.args['description']}
