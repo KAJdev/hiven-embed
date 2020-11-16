@@ -53,7 +53,7 @@ def index(name):
         return regular
     else:
         if request.method == 'POST':
-            json = request.get_json()
+            json = request.get_json(force=True)
             new_embed = {}
             if 'title' in json.keys():
                 new_embed['title'] = json['title']
