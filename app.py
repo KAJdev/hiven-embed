@@ -37,8 +37,8 @@ limiter = Limiter(
 
 embeds = {}
 
-regular = '<head>\n<meta name="title" content="Hiven Embed Generator">\n<meta name="description" content="make a post request to this URL with the parameters description and title to set this embed">\n</head>'
-template = '<head>\n<meta name="title" content=":TITLE:">\n<meta name="description" content=":DESC:">\n</head>'
+regular = '<head>\n<title>Hiven Embed Generator</title>\n<meta name="title" content="Hiven Embed Generator">\n<meta name="description" content="make a post request to this URL with the parameters description and title to set this embed">\n</head>'
+template = '<head>\n<title>:TITLE:</title>\n<meta name="title" content=":TITLE:">\n<meta name="description" content=":DESC:">\n</head>'
 
 #=====================|
 #     APP ROUTES      |
