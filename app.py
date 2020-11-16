@@ -58,7 +58,7 @@ def index(name):
             if 'title' in json.keys():
                 new_embed['title'] = json['title']
             if 'description' in json.keys():
-                new_embed['description'] = json['title']
+                new_embed['description'] = json['description']
             embeds[name] = new_embed
             return "Embed updated"
         elif request.method == 'GET':
