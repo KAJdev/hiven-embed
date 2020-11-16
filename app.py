@@ -49,6 +49,7 @@ template = '<head>\n<title>:TITLE:</title>\n<meta name="title" content=":TITLE:"
 @app.route("/<name>", methods=['GET', 'POST'])
 def index(name):
     global embeds
+    print(embeds)
     if name is None:
         return regular
     else:
