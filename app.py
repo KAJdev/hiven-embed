@@ -55,6 +55,7 @@ def index(name):
         if request.method == 'POST':
             print("hello")
             embeds[name] = {'title': request.args['title'], 'description': request.args['description']}
+            print("changed")
             return "Embed updated"
         elif request.method == 'GET':
             if name in embeds.keys():
