@@ -61,6 +61,7 @@ def index(name):
             json = request.get_json(force=True)
             if json is None or json == {}:
                 json = request.form
+                print(json)
             new_embed = {}
             if 'title' in json.keys():
                 new_embed['title'] = json['title']
