@@ -45,6 +45,10 @@ template = '<head>\n<title>:TITLE:</title>\n<meta name="title" content=":TITLE:"
 #                     |
 #=====================|
 
+@app.route("/", methods=['GET'])
+def home():
+    return render_template('index.html')
+
 # index route
 @app.route("/<name>", methods=['GET', 'POST'])
 def index(name):
@@ -55,11 +59,15 @@ def index(name):
     else:
         if request.method == 'POST':
             json = request.get_json(force=True)
+            if json is None or json == {}:
+                json = request.form
             new_embed = {}
             if 'title' in json.keys():
                 new_embed['title'] = json['title']
             if 'description' in json.keys():
                 new_embed['description'] = json['description']
+            if 'name' in json.keys():
+                name = json['name']
             embeds[name] = new_embed
             return "Embed updated"
         elif request.method == 'GET':
@@ -71,7 +79,7 @@ def index(name):
                     returning = returning.replace(":DESC:", embeds[name]['description'])
                 return returning
             else:
-                return regular
+                return render_template('index.html')
 
 # hahahahahahahah
 @app.route("/brew")
